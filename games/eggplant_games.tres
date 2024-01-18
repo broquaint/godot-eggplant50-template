@@ -1,8 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://mainmenu/gamelist.gd" type="Script" id=1]
 [ext_resource path="res://games/movement2/game_movement2.tres" type="Resource" id=2]
+[ext_resource path="res://games/testing-steps/game_testing_steps.tres" type="Resource" id=3]
+[ext_resource path="res://games/amazing_game/amazing_game.tres" type="Resource" id=4]
+[ext_resource path="res://games/a-glazing-game/a_glazing_game.tres" type="Resource" id=5]
+[ext_resource path="res://games/walking_game_simulator/wgs.tres" type="Resource" id=6]
 
 [resource]
 script = ExtResource( 1 )
-games = [ ExtResource( 2 ) ]
+games = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]

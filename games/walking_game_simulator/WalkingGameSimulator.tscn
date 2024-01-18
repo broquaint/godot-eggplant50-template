@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 657.0
+margin_bottom = 386.0
+color = Color( 0.243137, 0.243137, 0.243137, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 150.0
+margin_top = 71.0
+margin_right = 506.0
+margin_bottom = 119.0
+text = "A simulation of playing a walking game.
+
+You play as you playing a game in a simulation. Maaaan."

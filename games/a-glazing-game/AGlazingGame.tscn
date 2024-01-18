@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 670.0
+margin_bottom = 382.0
+color = Color( 0.0588235, 0.145098, 0.709804, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 182.0
+margin_top = 171.0
+margin_right = 465.0
+margin_bottom = 219.0
+text = "Glazing the game!
+
+You glaze windows. Or cakes. Or something."

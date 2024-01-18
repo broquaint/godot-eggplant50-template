@@ -21,6 +21,29 @@ Once the jam is done, we can merge all the different projects, re-add
 everyone's GameDef to res://games/eggplant_games.tres, and hopefully the package will
 all work!
 
+## Steps I followed
+
+- Make a directory in under `res://games` in the **FileSystem** tab of
+  Godot by right clicking on `games` and choosing **New Folder**
+- In that same interface right click on the newly created folder and
+  selected **New Resource**, search for `GameDef`, click **Create**,
+  give the resource a name e.g `bonbon.tres`
+- Then open `eggplant_games.tres` again from the **FileSystem** tab,
+  then in the **Inspector**, click on the **Array** of the **Games**
+  variable in the resource, increase the size by 1, then click the
+  **\[empty]** value, scroll down to **Quick Load** and then from the
+  large list of files choose your newly created resource file (e.g `bonbon.tres`).
+- Realise I haven't configured the resource file at all, open that up
+  in the **Inspector** and further realise a game is needed. So I
+  create a scene under the earlier created folder, again right click
+  on that folder and choose **New Scene**, open that and edit it.
+- With something in that scene (I just threw a `ColorRect` and a
+  `Label` to show _something_) I then went back to the new resource
+  file and set the **Initial Scene** variable to that newly created
+  scene, added a name to **Game Name** and put my name in **Game
+  Author**
+- Then I hit **Play**, a button in the top right that looks like ▶,
+  and it worked like a charm!
 
 ## Inputs
 

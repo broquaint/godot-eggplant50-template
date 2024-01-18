@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_right = 641.0
+margin_bottom = 361.0
+color = Color( 0.290196, 0.192157, 0.388235, 1 )
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 241.0
+margin_top = 165.0
+margin_right = 443.0
+margin_bottom = 179.0
+text = "Welcome to my amazing game!"
