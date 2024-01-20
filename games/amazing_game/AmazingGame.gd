@@ -1,17 +1,8 @@
 extends Node2D
 
-var InkPlayerFactory := preload("res://addons/inkgd/ink_player_factory.gd") as GDScript
-var _ink_player = InkPlayerFactory.create()
-
-export var ink_file: Resource
-
-#onready var _ink_player = $InkPlayer
+onready var _ink_player = $InkPlayer
 
 func _ready():
-	add_child(_ink_player)
-
-	_ink_player.ink_file = ink_file
-
 	_ink_player.connect("loaded", self, "_story_loaded")
 	_ink_player.connect("continued", self, "_continued")
 	_ink_player.connect("prompt_choices", self, "_prompt_choices")
@@ -33,15 +24,19 @@ func _should_show_debug_menu(debug):
 	print("_should_show_debug_menu called")
 	return debug
 
+func add_story_text(text):
+	$StoryText.message_received(text)
+
 func _continued(text, _tags):
 	print("Story text: ", text)
-	$StoryText.text = text
+	add_story_text(text)
 	_ink_player.continue_story()
 
 func _prompt_choices(choices):
 	if !choices.empty():
 		print(choices)
-
+		for c in $Choices.get_children():
+			$Choices.remove_child(c)
 		for idx in range(choices.size()):
 			var choice_text = choices[idx]
 			print(choice_text)
@@ -50,15 +45,15 @@ func _prompt_choices(choices):
 			choice.connect('pressed', self, '_select_choice', [idx])
 			print('added ', choice, ' at index ', idx)
 			$Choices.add_child(choice)
-	# In a real-world scenario, _select_choice' could be
-	# connected to a signal, like 'Button.pressed'.
-#	_select_choice(0)
 
 func _ended():
 	print("The End")
-	$StoryText.text = 'The End'
+	add_story_text('The End')
 
 func _select_choice(index):
+	for c in $Choices.get_children():
+		$Choices.remove_child(c)
+
 	print("Selected choice ", index)
 	_ink_player.choose_choice_index(index)
 	_ink_player.continue_story()

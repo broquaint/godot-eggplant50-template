@@ -5,7 +5,9 @@ In the beginning was the word
 -> theword
 
 === theword ===
-Actually that's a lie. There almost everything was before the word like ...
+Actually that's a lie.
+
+There was almost everything was before the word like ...
 
         +       [Actual birds.] -> birds
         +       [Quantum foam.] -> qfoam

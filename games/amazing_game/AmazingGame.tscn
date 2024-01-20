@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://games/amazing_game/AmazingGame.gd" type="Script" id=1]
 [ext_resource path="res://games/amazing_game/helloworld.ink.json" type="Resource" id=2]
+[ext_resource path="res://addons/inkgd/ink_player.gd" type="Script" id=3]
+[ext_resource path="res://games/amazing_game/StoryText.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.286275, 0.180392, 0.454902, 1 )
@@ -11,23 +13,39 @@ ItemList/styles/bg = SubResource( 1 )
 
 [node name="AmazingGame" type="Node2D"]
 script = ExtResource( 1 )
-ink_file = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 658.0
 margin_bottom = 376.0
 color = Color( 0.352941, 0.196078, 0.780392, 1 )
 
-[node name="StoryText" type="Label" parent="."]
-margin_left = 205.0
-margin_top = 166.0
-margin_right = 424.0
-margin_bottom = 180.0
-text = "Story goes here"
+[node name="StoryText" type="ScrollContainer" parent="."]
+margin_left = 154.0
+margin_top = 94.0
+margin_right = 554.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 358, 53 )
+rect_clip_content = false
+scroll_horizontal_enabled = false
+script = ExtResource( 4 )
+
+[node name="List" type="VBoxContainer" parent="StoryText"]
+margin_right = 358.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 358, 53 )
+
+[node name="PlaceHolder" type="Label" parent="StoryText/List"]
+margin_right = 358.0
+margin_bottom = 14.0
+text = "Story loading ..."
 
 [node name="Choices" type="VBoxContainer" parent="."]
-margin_left = 214.0
-margin_top = 215.0
-margin_right = 548.0
-margin_bottom = 338.0
+margin_left = 159.0
+margin_top = 203.0
+margin_right = 493.0
+margin_bottom = 326.0
 theme = SubResource( 2 )
+
+[node name="InkPlayer" type="Node" parent="."]
+script = ExtResource( 3 )
+ink_file = ExtResource( 2 )
