@@ -1,0 +1,13 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+path="res://.import/helloworld.ink-0452d7ef2ddbc6af9619fc5ad2034f6d.res"
+
+[deps]
+
+source_file="res://games/amazing_game/helloworld.ink"
+dest_files=[ "res://.import/helloworld.ink-0452d7ef2ddbc6af9619fc5ad2034f6d.res" ]
+
+[params]
+

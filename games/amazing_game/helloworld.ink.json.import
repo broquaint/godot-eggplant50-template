@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+path="res://.import/helloworld.ink.json-9ea7c66cca62f12a93acc0641b28b53f.res"
+
+[deps]
+
+source_file="res://games/amazing_game/helloworld.ink.json"
+dest_files=[ "res://.import/helloworld.ink.json-9ea7c66cca62f12a93acc0641b28b53f.res" ]
+
+[params]
+
+compress=true
