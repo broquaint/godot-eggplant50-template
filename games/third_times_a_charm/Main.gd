@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 			move.x = cpos.x - 64
 		elif input.x > 0 and cpos.x < 512:
 			move.x = cpos.x + 64
-		if input.y < 0 and cpos.y > 64:
+		elif input.y < 0 and cpos.y > 64:
 			move.y = cpos.y - 64
 		elif input.y > 0 and cpos.y < 256:
 			move.y = cpos.y + 64
@@ -43,13 +43,14 @@ func _process(_delta: float) -> void:
 		if move != cpos:
 			is_swapping = true
 			move_cursor(cpos, move)
-			print("move from ", (cpos.x/64), 'x', (cpos.y/64), " ", cpos, " to ", (move.x/64), 'x', (move.y/64), " ", move)
+#			print("move from ", (cpos.x/64), 'x', (cpos.y/64), " ", cpos, " to ", (move.x/64), 'x', (move.y/64), " ", move)
 			if input.move:
 				try_swap(cpos, move)
 
+const MOVE_PERIOD = 0.2
 func move_cursor(from, to):
 	$Cursor/Tween.interpolate_property(
-		$Cursor, 'global_position', from, to, 0.2, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT
+		$Cursor, 'global_position', from, to, MOVE_PERIOD, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT
 	)
 	$Cursor/Tween.start()
 
@@ -65,14 +66,14 @@ func try_swap(move_from: Vector2, move_to: Vector2):
 	var from_shape = grid[from_x_idx][from_y_idx]
 	var from_tween = get_tree().create_tween()
 	from_tween.tween_property(
-		from_shape, "global_position", Vector2(move_to.x+32,move_to.y+32), 0.2
+		from_shape, "global_position", Vector2(move_to.x+32,move_to.y+32), MOVE_PERIOD
 	)
 	from_tween.set_ease(Tween.EASE_IN_OUT)
 
 	var to_shape = grid[to_x_idx][to_y_idx]
 	var to_tween = get_tree().create_tween()
 	to_tween.tween_property(
-		to_shape, "global_position", Vector2(move_from.x+32,move_from.y+32), 0.2
+		to_shape, "global_position", Vector2(move_from.x+32,move_from.y+32), MOVE_PERIOD
 	)
 	to_tween.set_ease(Tween.EASE_IN_OUT)
 	
