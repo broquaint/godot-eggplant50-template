@@ -51,8 +51,7 @@ func _on_shape_touch(body):
 		emit_signal('shape_collectable', self)
 	elif !(body is StaticBody2D):
 		if merge_with_name == body.shape.shape_name \
-		and merge_with_size == body.shape.shape_size \
-		and merge_with_size < body.merge_with_size:
+		and merge_with_size == body.shape.shape_size:
 			wait_on_merger(body)
 
 func wait_on_merger(other_shape):

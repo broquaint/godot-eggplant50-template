@@ -8,7 +8,10 @@ extents = Vector2( 12, 12 )
 
 [node name="SquareSmall" type="RigidBody2D"]
 script = ExtResource( 1 )
-merge_with_size = 3
+merge_with_name = 1
+merge_with_size = 1
+merge_to_name = 2
+merge_to_size = 1
 score = 10
 merge_multiplier = 50
 

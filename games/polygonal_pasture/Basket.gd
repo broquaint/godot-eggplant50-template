@@ -16,7 +16,6 @@ var hexagon_small  = preload('res://games/polygonal_pasture/shapes/HexagonSmall.
 var hexagon_medium = preload('res://games/polygonal_pasture/shapes/HexagonMedium.tscn')
 var hexagon_large  = preload('res://games/polygonal_pasture/shapes/HexagonLarge.tscn')
 
-
 var shape_map = [null, null, null]
 
 func _ready() -> void:
@@ -53,21 +52,26 @@ func _on_shape_merger(shape_a: GrownShape, shape_b: GrownShape):
 	shape.shape_name = shape_a.merge_to_name
 	shape.shape_size = shape_a.merge_to_size
 
-	var new_shape : GrownShape = shape_map[shape.shape_name][shape.shape_size].instance()
-	add_child(new_shape)
+	# Add a 1/5 chance that small shapes are duped.
+	var shape_count = 2 if randf() < 0.2 and shape.shape_size == PpShape.ShapeSize.SMALL else 1
 
-	# Wait for the shape node to be initialized.
+	for x in range(shape_count):
+		var new_shape : GrownShape = shape_map[shape.shape_name][shape.shape_size].instance()
+		add_child(new_shape)
+
+		# Wait for the shape node to be initialized.
+		yield(get_tree(), "idle_frame")
+		new_shape.shape = shape
+		new_shape.from_merger = (shape_a.from_merger+shape_b.from_merger)+1
+		new_shape.position = shape_a.position
+		new_shape.rotation = shape_a.rotation
+		new_shape.mode = RigidBody2D.MODE_RIGID
+		new_shape.connect('shapes_merged', self, '_on_shape_merger')
+		new_shape.connect('shape_collectable', self, '_on_shape_collectable')
+		new_shape.contact_monitor = true
+		new_shape.contacts_reported = 10
+
 	yield(get_tree(), "idle_frame")
-	new_shape.shape = shape
-	new_shape.from_merger = (shape_a.from_merger+shape_b.from_merger)+1
-	new_shape.position = shape_a.position
-	new_shape.rotation = shape_a.rotation
-	new_shape.mode = RigidBody2D.MODE_RIGID
-	new_shape.connect('shapes_merged', self, '_on_shape_merger')
-	new_shape.connect('shape_collectable', self, '_on_shape_collectable')
-	new_shape.contact_monitor = true
-	new_shape.contacts_reported = 10
-
 	remove_child(shape_a)
 	remove_child(shape_b)
 

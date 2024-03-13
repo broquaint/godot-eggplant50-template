@@ -10,7 +10,9 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-merge_with_size = 2
+merge_with_size = 1
+merge_to_name = 1
+merge_to_size = 1
 score = 15
 merge_multiplier = 40
 
