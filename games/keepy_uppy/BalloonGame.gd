@@ -16,10 +16,16 @@ func _ready() -> void:
 	$Balloon.connect('balloon_popped', self, 'on_balloon_pop')
 	$Balloon.connect('floor_touched', $LilRobo, 'on_floor_touched')
 	$Balloon.connect('floor_touched', self, 'on_floor_touched')
+	for x in range(10):
+		for y in range(2):
+			var w = $Background/Wallpaper.duplicate()
+			w.global_position = Vector2(32+(64 * x), 96+(144 * y))
+			w.visible = true
+			$Background.add_child(w)
 
 func _process(_delta: float) -> void:
 	if game_state == GameState.KEEPING_UP and has_node('Balloon'):
-		var now = Time.get_ticks_msec()
+		var now = Time.get_ticks_msec() 
 		$UI/Status.update_timer((now - time_kept_up) / 1000.0)
 
 func on_touch_update(count):
