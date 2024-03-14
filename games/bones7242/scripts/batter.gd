@@ -119,7 +119,8 @@ func _process(delta):
 					get_node("Sprite").set_texture(spr_batter_idle)
 					get_parent().get_node("bat_area2d").visible = false
 		_:
-			print("I am not a bat state I know of!")
+			pass
+			# print("I am not a bat state I know of!")
 		
 	#print('power:' + str(power))
 	update()

@@ -145,7 +145,7 @@ func convert3dCoordintesTo2d():
 	
 func set_3d_position():
 	var projectedCoordinates = convert3dCoordintesTo2d()
-	print("projected coordinates: " + str(projectedCoordinates))
+	# print("projected coordinates: " + str(projectedCoordinates))
 	position.x = projectedCoordinates[0]
 	position.y = projectedCoordinates[1]
 	#update shadow
@@ -221,6 +221,6 @@ func _process(delta):
 			set_3d_image_scale()
 			pass
 		_:
-			print("I am not a baseball state I know of!")
+			pass # print("I am not a baseball state I know of!")
 	shadow.update_location()
-	print('baseball position: ' + str(position))
+	# print('baseball position: ' + str(position))

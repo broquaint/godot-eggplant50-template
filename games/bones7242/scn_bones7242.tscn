@@ -104,9 +104,9 @@ texture = ExtResource( 8 )
 centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 12 )]
+visible = false
 help_body = "Hold and release the action button to charge up your throw and then charge up your swing.  Time it for a maximumally powerful hit!
 
 Any hit short of a home run is an out.
