@@ -18,9 +18,13 @@ var state
 var shape : PpShape
 
 func _ready() -> void:
+	prepare_plot()
+
+func prepare_plot():
 	state = PlotState.EMPTY
 	shape = PpShape.new()
-	
+	modulate = Color('#ffffffff')
+
 func can_plant():
 	return state == PlotState.EMPTY
 
@@ -34,6 +38,7 @@ func add_seed(new_shape: PpShape):
 	shape.name = 'Shape'
 	shape.shape_name = new_shape.shape_name
 	shape.shape_size = PpShape.ShapeSize.SEED
+	shape.modulate = Color('#ffffffff')
 	add_child(shape)
 	state = PlotState.SEEDED
 	grow_seed()
@@ -88,3 +93,7 @@ func harvest_shape():
 		return
 
 	emit_signal('shape_harvested', shape)
+	
+	yield(get_tree().create_timer(3), 'timeout')
+	prepare_plot()
+	remove_child($Shape)

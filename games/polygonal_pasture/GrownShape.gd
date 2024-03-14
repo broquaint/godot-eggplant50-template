@@ -44,6 +44,9 @@ func _ready() -> void:
 	connect('body_entered', self, '_on_shape_touch')
 
 func _on_shape_touch(body):
+	# Don't do any merging until we're near the basket
+	if position.y < 32:
+		return
 	if body.name == 'ScoreFloor':
 		yield(get_tree(), "idle_frame")
 		mode = RigidBody2D.MODE_STATIC

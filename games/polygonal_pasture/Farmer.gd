@@ -10,12 +10,23 @@ const SEED_SHAPES = [
 	PpShape.ShapeName.HEXAGON
 ]
 
+enum State {
+	WAITING,
+	HARVESTING,
+	COMPLETE
+}
+
 var current_shape : PpShape
+var state
 
 func _ready():
 	current_shape = PpShape.new()
 	current_shape.shape_name = PpShape.ShapeName.TRIANGLE
 	current_shape.shape_size = PpShape.ShapeSize.SEED
+	state = State.WAITING
+
+func _start_harvest():
+	state = State.HARVESTING
 
 func get_input() -> Dictionary:
 	var move := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -30,6 +41,9 @@ func get_input() -> Dictionary:
 	}
 
 func _process(_delta: float) -> void:
+	if state != State.HARVESTING:
+		return
+
 	var action = get_input()
 	position.x += action.x
 	position.y += action.y

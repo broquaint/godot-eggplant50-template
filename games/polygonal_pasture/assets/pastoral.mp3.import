@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pastoral.mp3-42b9b8585b30dcc581d2e99c6580acc1.mp3str"
+
+[deps]
+
+source_file="res://games/polygonal_pasture/assets/pastoral.mp3"
+dest_files=[ "res://.import/pastoral.mp3-42b9b8585b30dcc581d2e99c6580acc1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

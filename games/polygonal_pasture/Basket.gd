@@ -72,8 +72,11 @@ func _on_shape_merger(shape_a: GrownShape, shape_b: GrownShape):
 		new_shape.contacts_reported = 10
 
 	yield(get_tree(), "idle_frame")
-	remove_child(shape_a)
-	remove_child(shape_b)
+	# Sometimes the shape doesn't have a parent, not bothered to find why.
+	if shape_a.get_parent() == self:
+		remove_child(shape_a)
+	if shape_b.get_parent() == self:
+		remove_child(shape_b)
 
 func _on_shape_collectable(shape):
 	emit_signal('shape_ready_to_collect', shape)

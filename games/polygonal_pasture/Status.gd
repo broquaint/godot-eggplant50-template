@@ -3,6 +3,7 @@ extends Control
 var current_shape = 'Triangle'
 var total_score = 0
 var mergers = 0
+var gathered = 0
 
 func on_seed_change(shape):
 	get_node('%s/Highlight' % current_shape).visible = false
@@ -14,3 +15,6 @@ func on_score_update(shape):
 	$Score/Value.text = str(total_score)
 	mergers += shape.from_merger
 	$Mergers/Value.text = str(mergers)
+
+func on_shape_gathered(shape):
+	gathered += 1
