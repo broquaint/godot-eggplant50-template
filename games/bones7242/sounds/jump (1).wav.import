@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump (1).wav-0fe5895c6b75a6bc5a3601b424fa84fd.sample"
+
+[deps]
+
+source_file="res://games/bones7242/sounds/jump (1).wav"
+dest_files=[ "res://.import/jump (1).wav-0fe5895c6b75a6bc5a3601b424fa84fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
