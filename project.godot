@@ -49,11 +49,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://games/bones7242/scripts/state.gd"
 }, {
-"base": "Node",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://games/bones7242/trash/scr_state_machine_2.gd"
-}, {
 "base": "Resource",
 "class": "TriangleGameState",
 "language": "GDScript",
@@ -68,7 +63,6 @@ _global_script_class_icons={
 "GrownShape": "",
 "PpShape": "",
 "State": "",
-"StateMachine": "",
 "TriangleGameState": ""
 }
 

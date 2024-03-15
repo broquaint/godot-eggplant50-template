@@ -4,7 +4,7 @@ extends Sprite
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var xlocation = 640 * 2 /3
+var xlocation = 640 / 2
 var ylocation = 0
 var zlocation = 100 + 4
 var room_height = 360

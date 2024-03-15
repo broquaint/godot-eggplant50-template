@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	if (ball.current_state == ball.State.RELEASED):
-		if (ball.unprojectedZ <= 5):
+		if (ball.unprojectedZ <= 20):
 			last_ball_z = ball.unprojectedZ #should reset in a better way
 			pass
 		else :

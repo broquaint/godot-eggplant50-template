@@ -64,8 +64,8 @@ func convert3dCoordintesTo2d(unprojectedX, unprojectedY, unprojectedZ):
 
 func update_location():
 	var baseball = get_parent().get_node("baseball_area2d")
-#	print('baseball position from shadow: ' + str(baseball.position))
-#	print('shadow position: ' + str(position))
+	print('baseball position from shadow: ' + str(baseball.position))
+	print('shadow position: ' + str(position))
 	# set positions
 	xlocation = baseball.unprojectedX
 	ylocation = 0

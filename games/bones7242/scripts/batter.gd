@@ -43,8 +43,8 @@ func check_for_hit():
 	#var distance_to_ball_center = bat_object.position.distance_to(baseball_object.position)
 	var x_diff = baseball_object.position.x - bat_object.position.x
 	var y_diff = baseball_object.position.y - bat_object.position.y
-	print('x distance to ball = ' + str(x_diff))
-	print('y distance to ball = ' + str(y_diff))
+	#print('x distance to ball = ' + str(x_diff))
+	#print('y distance to ball = ' + str(y_diff))
 	#return true
 	var y_inside = (y_diff <= 30 && y_diff >=0)
 	var x_inside = (x_diff <= 50 && x_diff >=0)
@@ -105,7 +105,10 @@ func _process(delta):
 				print("YOU GOT A HIT!")
 				#to do: affect the ball
 				get_parent().get_node("baseball_area2d").hit(swing_power) # change state
-			if (delta_counter > 0.1) :
+				yield(get_tree().create_timer(2), "timeout") #NOTE: not working
+				change_state(State.FOLLOWTHROUGH)
+				get_node("Sprite").set_texture(spr_batter_followthrough)	
+			elif (delta_counter > 0.1) :
 				change_state(State.FOLLOWTHROUGH)
 				get_node("Sprite").set_texture(spr_batter_followthrough)	
 			
@@ -119,8 +122,7 @@ func _process(delta):
 					get_node("Sprite").set_texture(spr_batter_idle)
 					get_parent().get_node("bat_area2d").visible = false
 		_:
-			pass
-			# print("I am not a bat state I know of!")
+			print("I am not a bat state I know of!")
 		
 	#print('power:' + str(power))
 	update()

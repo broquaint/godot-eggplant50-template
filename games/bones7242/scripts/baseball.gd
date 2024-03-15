@@ -65,6 +65,8 @@ func hit(batter_swing_power):
 		yVelocity = batter_swing_power * 30 # multiplying b/c comes in 1-100 but now we will use delta
 		zVelocity = batter_swing_power # make it a percent of max 20
 		xVelocity = 10
+		yield(get_tree().create_timer(0.3), "timeout")
+		get_node("snd_hit_reflect").play()
 	pass
 
 func change_state_grounded():
@@ -145,7 +147,7 @@ func convert3dCoordintesTo2d():
 	
 func set_3d_position():
 	var projectedCoordinates = convert3dCoordintesTo2d()
-	# print("projected coordinates: " + str(projectedCoordinates))
+	print("projected coordinates: " + str(projectedCoordinates))
 	position.x = projectedCoordinates[0]
 	position.y = projectedCoordinates[1]
 	#update shadow
@@ -221,6 +223,6 @@ func _process(delta):
 			set_3d_image_scale()
 			pass
 		_:
-			pass # print("I am not a baseball state I know of!")
+			print("I am not a baseball state I know of!")
 	shadow.update_location()
-	# print('baseball position: ' + str(position))
+	print('baseball position: ' + str(position))
