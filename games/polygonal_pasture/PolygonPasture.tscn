@@ -156,6 +156,7 @@ texture = ExtResource( 8 )
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -149, -20 )
 frames = SubResource( 11 )
+frame = 3
 playing = true
 
 [node name="UI" type="Control" parent="."]

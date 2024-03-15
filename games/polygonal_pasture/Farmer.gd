@@ -45,8 +45,8 @@ func _process(_delta: float) -> void:
 		return
 
 	var action = get_input()
-	position.x += action.x
-	position.y += action.y
+	position.x += action.x*1.5 if action.x != 0 else 0
+	position.y += action.y*1.5 if action.y != 0 else 0
 
 	if action.just_plant:
 		handle_plant()
